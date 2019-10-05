@@ -1,14 +1,14 @@
 version: '2'
 services:
     nginx:
-        image: namptit307/sanic_nginx:$IMAGE_TAG
+        image: tuanlee/sanic_nginx:$IMAGE_TAG
         container_name: sanic_nginx_con
         ports:
             - "8888:80"
         links:
             - app
     app:
-        image: namptit307/sanic_url:$IMAGE_TAG
+        image: tuanlee/sanic_url:$IMAGE_TAG
         container_name: sanic_url_con
         expose:
             - "8000"
@@ -19,7 +19,7 @@ services:
         depends_on:
             - postgres
     postgres:
-        image: namptit307/sanic_db:$IMAGE_TAG
+        image: tuanlee/sanic_db:$IMAGE_TAG
         container_name: sanic_db_con
         env_file:
             - ./.env
